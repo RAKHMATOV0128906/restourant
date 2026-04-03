@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="48" viewBox="0 0 120 48" fill="none">
+  <rect width="120" height="48" rx="8" fill="url(#a)"/>
+  <text x="10" y="17" fill="white" font-family="Arial" font-size="8" font-weight="700">Weekend</text>
+  <text x="10" y="27" fill="white" font-family="Arial" font-size="8" font-weight="700">Special Deal</text>
+  <text x="10" y="37" fill="#CFDAFF" font-family="Arial" font-size="6">20% off on pizza</text>
+  <circle cx="96" cy="24" r="17" fill="#914B1F"/>
+  <circle cx="96" cy="24" r="13" fill="#E89D34"/>
+  <defs>
+    <linearGradient id="a" x1="0" y1="0" x2="120" y2="48" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6585FF"/>
+      <stop offset="1" stop-color="#4856F4"/>
+    </linearGradient>
+  </defs>
+</svg>

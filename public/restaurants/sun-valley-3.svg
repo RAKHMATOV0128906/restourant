@@ -1,0 +1,8 @@
+<svg width="960" height="520" viewBox="0 0 960 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="520" fill="#231F20"/>
+  <rect y="325" width="960" height="195" fill="#121826"/>
+  <rect x="95" y="100" width="770" height="238" rx="18" fill="#D28E5A"/>
+  <rect x="130" y="130" width="700" height="96" rx="14" fill="#4A3426"/>
+  <rect x="130" y="238" width="700" height="68" rx="14" fill="#4A3426"/>
+  <text x="480" y="213" text-anchor="middle" fill="#FFF7ED" font-size="40" font-family="Arial">Sun Valley Restaurant</text>
+</svg>

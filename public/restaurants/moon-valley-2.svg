@@ -1,0 +1,10 @@
+<svg width="960" height="520" viewBox="0 0 960 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="520" fill="#102A43"/>
+  <rect y="340" width="960" height="180" fill="#0B1F33"/>
+  <rect x="120" y="105" width="720" height="228" rx="18" fill="#486581"/>
+  <rect x="150" y="135" width="150" height="150" fill="#1F2937"/>
+  <rect x="320" y="135" width="150" height="150" fill="#1F2937"/>
+  <rect x="490" y="135" width="150" height="150" fill="#1F2937"/>
+  <rect x="660" y="135" width="150" height="150" fill="#1F2937"/>
+  <text x="480" y="245" text-anchor="middle" fill="#F8FAFC" font-size="42" font-family="Arial">Moon Valley</text>
+</svg>

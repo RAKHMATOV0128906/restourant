@@ -27,10 +27,6 @@ const validate = () => {
   errors.password = ''
   errors.confirmPassword = ''
 
-  if (!form.name.trim()) {
-    errors.name = 'Ism kiriting'
-  }
-
   if (!form.email) {
     errors.email = 'Email kiriting'
   } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
@@ -41,13 +37,11 @@ const validate = () => {
     errors.password = 'Parol kiriting'
   }
 
-  if (!form.confirmPassword) {
-    errors.confirmPassword = 'Parolni qayta kiriting'
-  } else if (form.confirmPassword !== form.password) {
+  if (form.confirmPassword && form.confirmPassword !== form.password) {
     errors.confirmPassword = 'Parollar mos emas'
   }
 
-  return !errors.name && !errors.email && !errors.password && !errors.confirmPassword
+  return !errors.email && !errors.password && !errors.confirmPassword
 }
 
 const submit = async () => {
@@ -57,7 +51,8 @@ const submit = async () => {
 
   loading.value = true
   await new Promise(resolve => setTimeout(resolve, 700))
-  register(form.name.trim(), form.email)
+  const safeName = form.name.trim() || form.email.split('@')[0] || 'User'
+  register(safeName, form.email)
   loading.value = false
   await navigateTo('/restaurants')
 }
@@ -88,7 +83,7 @@ useHead({
       <form class="login-form" @submit.prevent="submit">
         <label class="input-block">
           <span>Ism Familiya</span>
-          <input v-model="form.name" type="text" placeholder="Ism Familiya" required>
+          <input v-model="form.name" type="text" placeholder="Ism Familiya (ixtiyoriy)">
           <small v-if="errors.name" class="error-text">{{ errors.name }}</small>
         </label>
 
@@ -106,7 +101,7 @@ useHead({
 
         <label class="input-block">
           <span>Parolni qayta kiriting</span>
-          <input v-model="form.confirmPassword" type="password" placeholder="Parolni qayta kiriting" required>
+          <input v-model="form.confirmPassword" type="password" placeholder="Parolni qayta kiriting (ixtiyoriy)">
           <small v-if="errors.confirmPassword" class="error-text">{{ errors.confirmPassword }}</small>
         </label>
 

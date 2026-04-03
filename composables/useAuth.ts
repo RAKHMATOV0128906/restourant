@@ -15,11 +15,42 @@ export const useAuth = () => {
 
   const isAuthenticated = computed(() => Boolean(userEmail.value))
 
+  const syncStorage = () => {
+    if (!import.meta.client) {
+      return
+    }
+
+    if (userEmail.value) {
+      localStorage.setItem('bp-user-email', userEmail.value)
+      localStorage.setItem('bp-user-name', userName.value)
+    } else {
+      localStorage.removeItem('bp-user-email')
+      localStorage.removeItem('bp-user-name')
+    }
+  }
+
+  const restoreStorage = () => {
+    if (!import.meta.client || userEmail.value) {
+      return
+    }
+
+    const storedEmail = localStorage.getItem('bp-user-email') || ''
+    const storedName = localStorage.getItem('bp-user-name') || ''
+
+    if (storedEmail) {
+      userEmail.value = storedEmail
+      userName.value = storedName
+      emailCookie.value = storedEmail
+      nameCookie.value = storedName
+    }
+  }
+
   const login = (email: string, name = '') => {
     userEmail.value = email
     userName.value = name || email.split('@')[0] || 'User'
     emailCookie.value = userEmail.value
     nameCookie.value = userName.value
+    syncStorage()
   }
 
   const register = (name: string, email: string) => {
@@ -27,6 +58,7 @@ export const useAuth = () => {
     userEmail.value = email
     emailCookie.value = userEmail.value
     nameCookie.value = userName.value
+    syncStorage()
   }
 
   const logout = () => {
@@ -34,7 +66,10 @@ export const useAuth = () => {
     userName.value = ''
     emailCookie.value = ''
     nameCookie.value = ''
+    syncStorage()
   }
+
+  restoreStorage()
 
   return {
     userEmail,

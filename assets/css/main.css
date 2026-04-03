@@ -295,6 +295,8 @@ img {
   height: 100%;
   object-fit: cover;
   object-position: center;
+  transform: scale(1.28);
+  transform-origin: center;
 }
 
 .content-area {
@@ -306,6 +308,7 @@ img {
   top: calc(100% + 12px);
   right: 0;
   width: 300px;
+  max-width: min(300px, calc(100vw - 24px));
   padding: 12px;
   border: 1px solid var(--line);
   border-radius: 16px;
@@ -461,7 +464,8 @@ img {
 }
 
 .notification-drawer {
-  width: min(360px, 100vw);
+  width: min(360px, calc(100vw - 12px));
+  max-width: calc(100vw - 12px);
   height: 100vh;
   padding: 20px 18px;
   background: #fff;
@@ -563,6 +567,9 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
+  transform: scale(1.18);
+  transform-origin: center;
 }
 
 .notification-drawer__icon--customer {
@@ -1116,6 +1123,9 @@ img {
   object-position: center;
   flex-shrink: 0;
   background: #f5f7fb;
+  display: block;
+  transform: scale(1.55);
+  transform-origin: center;
 }
 
 .customer-cell {
@@ -1568,6 +1578,9 @@ img {
   border-radius: 50%;
   object-fit: cover;
   object-position: center;
+  display: block;
+  transform: scale(1.55);
+  transform-origin: center;
 }
 
 .customer-stack__item strong {
@@ -2682,6 +2695,8 @@ img {
   height: 100%;
   object-fit: cover;
   object-position: center;
+  transform: scale(1.24);
+  transform-origin: center;
 }
 
 .profile-card h3 {
@@ -2911,8 +2926,26 @@ img {
     width: 100%;
   }
 
+  .topbar-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
   .search-box {
     width: 100%;
+  }
+
+  .popover-anchor {
+    position: static;
+  }
+
+  .topbar-card {
+    position: fixed;
+    top: 72px;
+    right: 12px;
+    left: 12px;
+    width: auto;
+    max-width: none;
   }
 
   .table-card {
@@ -2946,7 +2979,9 @@ img {
   }
 
   .notification-drawer {
-    width: 100%;
+    width: 100vw;
+    max-width: 100vw;
+    border-left: 0;
   }
 }
 
